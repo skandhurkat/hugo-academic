@@ -8,6 +8,10 @@
  *  Core
  **************************************************/
 
+html, body {
+  height: 100%;
+}
+
 html {
   font-family: '{{ .Get "body_font" }}', sans-serif;
   font-size: {{ .Get "font_size_small" }}px;
@@ -402,6 +406,8 @@ a[data-fancybox] img {
   padding: 110px 0 110px 0;
   animation: intro 0.3s both;
   animation-delay: 0.15s;
+  height: auto !important;
+  min-height: 100%;
 }
 
 .home-section:first-of-type {
