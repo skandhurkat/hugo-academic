@@ -46,11 +46,18 @@
 
       {{ if and $.Site.Params.email (not $page.Params.email_form) }}
       <li>
-        <i class="fa-li fas fa-envelope fa-2x" aria-hidden="true"></i>
-        <span id="person-email" itemprop="email">
-        {{- if $autolink }}<a href="mailto:{{ $.Site.Params.email }}">{{ $.Site.Params.email }}</a>{{ else }}{{ $.Site.Params.email }}{{ end -}}
-        </span>
-      </li>
+        <i class="fa-li fa fa-envelope fa-2x" aria-hidden="true"></i>
+        <span>
+          <script type="text/javascript">
+            h = '{{ base64Encode $.Site.Params.email }}';
+            {{- if $autolink }}
+            document.write('<a h' + 'ref' + '=' + 'm' + 'ai' + 'lt' + 'o:' + atob(h) + '>' + atob(h) + '<\/' + 'a>');
+            {{ else }}
+            document.write(atob(h));
+            {{ end -}}
+          </script>
+          <noscript>Please enable Javascript to view this content</noscript>
+        </span> </li>
       {{ end }}
 
       {{ with $.Site.Params.phone }}
